@@ -7,14 +7,14 @@ const User = require('../models/User');
 require('dotenv').config();
 // Register Route
 router.post('/register', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password , firstName, lastName, email} = req.body;
     try {
         let user = await User.findOne({ username });
         if (user) {
             return res.status(400).json({ msg: 'User already exists' });
         }
-
-        user = new User({ username, password });
+        console.log("USer not exists")
+        user = new User({ username, password , firstName, lastName});
 
         const salt = await bcrypt.genSalt(10);
         user.password = await bcrypt.hash(password, salt);
