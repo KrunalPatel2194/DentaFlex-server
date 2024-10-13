@@ -1,17 +1,17 @@
-
-// const {MongoClient} = require('mongodb');
-// const mongoose = require("mongoose");
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 
 
     const connectDB = async () => {
         try {
-          const conn = await mongoose.connect(process.env.DB_URL, {
+         const uri = process.env.DB_URL;
+         const conn = await mongoose.connect(uri, {
             // useNewUrlParser: true,
           });
-          console.log(`MongoDB Connected: {conn.connection.host}`);
+          
+          console.log(`MongoDB Connected:+ $ {conn.connection.host}`);
+
         } catch (error) {
           console.error(error.message);
           process.exit(1);
