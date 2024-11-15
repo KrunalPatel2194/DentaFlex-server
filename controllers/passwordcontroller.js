@@ -26,7 +26,7 @@ const ForgotPassword = async(req,res)=>{
 
         // Email options
         const mailOptions = {
-            from: "jobsyncportal27@gmail.com",
+            from: "dentaflex93@gmail.com",
             to: email,
             subject: 'Password Reset Link',
             html: `<p>Click <a href="${link}">here</a> to reset your password.</p>`,
