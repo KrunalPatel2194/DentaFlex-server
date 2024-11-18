@@ -5,8 +5,7 @@ const cors = require("cors");
 // const connection = require("./connect/db.js");
 const connectDB = require('./connect/db.js');
 const authRoutes = require('./routes/auth.js');
-
-
+// const adminRoutes = require('./routes/admin.js');
 
 //middlewares
 app.use(express.json())
@@ -16,6 +15,7 @@ app.use(cors());
 //Database Connection
 connectDB();
 app.use('/api/auth/', authRoutes);
+// app.use('/admin',adminRoutes);
 
 
 const PORT = process.env.PORT || 8080;
